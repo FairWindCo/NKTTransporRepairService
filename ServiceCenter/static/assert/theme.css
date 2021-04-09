@@ -319,3 +319,32 @@ div#APP .p-megamenu{
     padding: 0px;
     margin: 0px;
 }
+
+.fw-layout {
+    position: relative;
+    color: #ffffff;
+    background-color: #022245;
+    padding-right: 1.25rem;
+    align-items: center;
+    justify-content: center;
+}
+.fw-layout-right{
+    color: #ffffff;
+    background-color: #1565C0;
+    padding-left: 2.25rem;
+}
+.fw-layout-menu-button {
+    position: absolute;
+    top: 50%;
+    right: -0.5rem;
+    width: 2.5rem;
+    height: 2.5rem;
+    margin-top: -1.25rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border-radius: 50%;
+    color: #212121;
+    background-color: #FBC02D;
+}

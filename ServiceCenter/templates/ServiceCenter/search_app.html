@@ -5,8 +5,10 @@
 {#  ВНИМАНИЕ АТРИБУТЫ ВРОДЕ useGrouping и totalRecords должны записыватся use-grouping  total-records#}
 
 {% block js_header_extend %}
+            <script src="{% static 'vue_components/ajax_api.js' %}"></script>
             <script src="{% static 'vue_components/dashboard.js' %}"></script>
             <script src="{% static 'vue_components/items.js' %}"></script>
+            <script src="{% static 'vue_components/products.js' %}"></script>
 {% endblock %}
 
 {% block js_header_vue_router_config %}
@@ -14,7 +16,9 @@
         function vue_router_config() {
             return [
                 {path: '/function/dashboard/', component: fwdashboard},
-                {path: '/function/items/', component: fwitems}
+                {path: '/function/items/', component: fwitems},
+                {path: '/function/products/', component: fwproducts},
+
             ]
         }
 
@@ -42,6 +46,7 @@
                         {
                             label: 'File',
                             icon: 'pi pi-fw pi-file',
+                            to:'/function/products/',
                         },
                     ]
                 }
