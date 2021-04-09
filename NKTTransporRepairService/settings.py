@@ -13,17 +13,20 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
+from environ import environ
+
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
+root = environ.Path(__file__)
+env = environ.Env()
+environ.Env.read_env()  # reading .env file
 
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-%@52qqb78er13vc#w1djsby5!^-w^do#8&hd9-l48@k5lmqhmm'
-
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+# False if not in os.environ
+DEBUG = env.bool('DEBUG')
+SECRET_KEY = env.str('SECRET_KEY')
 
 ALLOWED_HOSTS = []
 
@@ -40,7 +43,8 @@ INSTALLED_APPS = [
     'Contacts',
     'Counterparty',
     'Product',
-    'ServiceCenter'
+    'ServiceCenter',
+    'vue_utils'
 ]
 
 MIDDLEWARE = [

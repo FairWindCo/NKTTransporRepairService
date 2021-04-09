@@ -89,20 +89,20 @@ class ServiceProducts(models.Model):
 
 
 class ServiceOrderItem(models.Model):
-    order = models.ForeignKey('Заказ на сервис', on_delete=models.CASCADE, to=ServiceOrder)
-    service_product = models.ForeignKey('Изделие', on_delete=models.CASCADE, to=ServiceProducts)
-    place = models.ForeignKey('Текущее местополодение', on_delete=models.CASCADE, to=Partner, default=None, blank=True,
+    order = models.ForeignKey(verbose_name='Заказ на сервис', on_delete=models.CASCADE, to=ServiceOrder)
+    service_product = models.ForeignKey(verbose_name='Изделие', on_delete=models.CASCADE, to=ServiceProducts)
+    place = models.ForeignKey(verbose_name='Текущее местополодение', on_delete=models.CASCADE, to=Partner, default=None, blank=True,
                               null=True,
                               related_name='from_service')
-    next_place = models.ForeignKey('Направляется', on_delete=models.CASCADE, to=Partner, default=None, blank=True,
+    next_place = models.ForeignKey(verbose_name='Направляется', on_delete=models.CASCADE, to=Partner, default=None, blank=True,
                                    null=True,
                                    related_name='to_service')
-    equipment = models.ManyToManyField('Комплектация', Equipment, on_delete=models.PROTECT)
-    breakdown = models.ManyToManyField('Поломки', on_delete=models.PROTECT)
-    replacement_product = models.ForeignKey('Замена на время ремона', on_delete=models.CASCADE, to=ServiceProducts,
-                                            default=None, blank=True)
-    reinforcement_product = models.ForeignKey('Замена на изделие', on_delete=models.CASCADE, to=ServiceProducts,
-                                              default=None, blank=True)
+    equipment = models.ManyToManyField(verbose_name='Комплектация', to=Equipment)
+    breakdown = models.ManyToManyField(verbose_name='Поломки', to=Breakdown)
+    replacement_product = models.ForeignKey(verbose_name='Замена на время ремона', on_delete=models.CASCADE, to=ServiceProducts,
+                                            default=None, blank=True, related_name='replacements')
+    reinforcement_product = models.ForeignKey(verbose_name='Замена на изделие', on_delete=models.CASCADE, to=ServiceProducts,
+                                              default=None, blank=True, related_name='reinforcements')
     comments = models.TextField('Коментарий', max_length=500, blank=True, null=True)
 
     def __str__(self):

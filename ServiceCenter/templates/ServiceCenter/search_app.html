@@ -1,0 +1,75 @@
+{% extends 'ServiceCenter/vue_app_template.html' %}
+{% load static %}
+{% load i18n %}
+{% load define_action %}
+{#  ВНИМАНИЕ АТРИБУТЫ ВРОДЕ useGrouping и totalRecords должны записыватся use-grouping  total-records#}
+
+{% block js_header_extend %}
+            <script src="{% static 'vue_components/dashboard.js' %}"></script>
+            <script src="{% static 'vue_components/items.js' %}"></script>
+{% endblock %}
+
+{% block js_header_vue_router_config %}
+    <script>
+        function vue_router_config() {
+            return [
+                {path: '/function/dashboard/', component: fwdashboard},
+                {path: '/function/items/', component: fwitems}
+            ]
+        }
+
+    </script>
+{% endblock %}
+
+
+{% block vue_app_config %}
+    <script>
+        const APP_COMPONENTS = {fwdashboard, fwitems}
+        const APP_CONFIG = {
+            data() {
+                return {
+                    main_menu_items: [
+                        {
+                            label: 'File',
+                            icon: 'pi pi-fw pi-file',
+                            to: '/function/dashboard/'
+                        },
+                        {
+                            label: 'File',
+                            icon: 'pi pi-fw pi-file',
+                            to: '/function/items/'
+                        },
+                        {
+                            label: 'File',
+                            icon: 'pi pi-fw pi-file',
+                        },
+                    ]
+                }
+            },
+            computed: {},
+            watch: {},
+            mounted() {
+                this.getCars();
+            },
+            methods: {
+                getCars: function () {
+                    const vm = this
+                    console.log('FETCH CARS')
+                    axios.get('sdfsd', {
+                        params: {}
+                    })
+                        .then(function (response) {
+                            console.log('FETCH CARS RESPONSE', response.data.data_list)
+                            vm.cars = response.data.data_list
+                            vm.totalCars = response.data.data_count
+                        })
+                        .catch(function (error) {
+                            console.log('FETCH CARS RESPONSE', error)
+                            let answer = 'Error! Could not reach the API. ' + error
+                            vm.$toast.add({severity: 'error', summary: 'Error Message', detail: answer, life: 3000});
+                        })
+                },
+            }
+        }
+    </script>
+{% endblock %}

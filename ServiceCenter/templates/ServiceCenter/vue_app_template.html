@@ -1,0 +1,79 @@
+{% extends 'vue_utils/vue_prime_template.html' %}
+{% load static %}
+{% load i18n %}
+{% load define_action %}
+
+{% block css_header_extend_pre %}
+    <link rel="stylesheet" href="{% static 'vue_utils/bootstrap-5/css/bootstrap.min.css' %}">
+{% endblock %}
+{% block css_header_theme %}
+    <link rel="stylesheet" href="{% static 'vue_utils/theme.css' %}">
+    <link rel="stylesheet" href="{% static 'assert/theme.css' %}">
+    <link rel="stylesheet" href="{% static 'assert/theme-blue.css' %}">
+    <link rel="stylesheet" href="{% static 'assert/layout-blue.css' %}">
+
+{% endblock %}
+
+{% block main_content %}
+    {#  ВНИМАНИЕ АТРИБУТЫ ВРОДЕ useGrouping и totalRecords должны записыватся use-grouping  total-records#}
+    <div class="layout-container layout-menu-horizontal layout-top-large layout-topbar-blue layout-menu-light">
+        <toast position="top-right"></toast>
+        <header class="layout-top">
+            <div class="layout-topbar">
+                <div class="layout-topbar-grid">
+                    <div class="layout-topbar-grid-column layout-topbar-grid-column-fixed">
+                        <button class="layout-logo p-link">
+                            <img src="{% static 'assert/logo-white.svg' %}" alt="sapphire-layout"></button>
+                    </div>
+                    <div class="layout-topbar-grid-column">
+                        <div class="layout-menu-container">
+                            <p-MegaMenu :model="main_menu_items"></p-MegaMenu>
+                        </div>
+                    </div>
+                    <div class="layout-topbar-grid-column layout-topbar-grid-column-fixed">
+                        <span class="layout-topbar-search">
+                            <span class="p-float-label p-input-icon-right">
+                                <input class="p-inputtext p-component" id="search" type="text" placeholder="Search">
+                                <i class="topbar-icon pi pi-search"></i>
+                            </span>
+                        </span>
+                    </div>
+                    <div class="layout-topbar-grid-column layout-topbar-grid-column-fixed">
+
+                    </div>
+                </div>
+                <div class="layout-topbar-separator"></div>
+                <div class="layout-breadcrumb">
+                    <nav class="p-breadcrumb p-component" aria-label="Breadcrumb">
+                        <p-Breadcrumb :home="home" :model="breadcrumbs">
+
+                        </p-Breadcrumb>
+                    </nav>
+                </div>
+            </div>
+        </header>
+        <main class="layout-content">
+            {% block main_content_block %}
+
+                <transition>
+                    <keep-alive>
+                        <router-view></router-view>
+                    </keep-alive>
+                </transition>
+
+            {% endblock %}
+        </main>
+        <footer class="layout-footer">
+            <div class="p-grid">
+                <div class="p-col">
+                    <img src="{% static 'assert/logo-white.svg' %}" alt="sapphire-layout">
+                    <div class="layout-footer-appname">PrimeVue Premium Template</div>
+                </div>
+                <div class="p-col p-col-align-right">
+                    <span>All Rights Reserved</span>
+                </div>
+            </div>
+        </footer>
+    </div>
+{% endblock %}
+

@@ -41,7 +41,7 @@ class Categories(models.Model):
         db_table = 'trade_category'
         ordering = ['name']
         constraints = [
-            UniqueConstraint(fields=['name', 'parent'], name='u_trade_cat'),
+            UniqueConstraint(fields=['name', 'parent', 'code'], name='u_trade_cat'),
             UniqueConstraint(fields=['code'], name='u_trade_cat_code'),
         ]
 
@@ -109,7 +109,7 @@ class Products(models.Model):
         ordering = ['name']
         constraints = [
             UniqueConstraint(fields=['code'], name='u_trade_prod_code'),
-            UniqueConstraint(fields=['name', 'brand'], name='u_trade_prod_name')
+            UniqueConstraint(fields=['name', 'brand', 'code'], name='u_trade_prod_name')
         ]
         indexes = [
             models.Index(fields=['vendor_code']),

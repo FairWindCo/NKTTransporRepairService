@@ -1,0 +1,321 @@
+.btn {
+    color: #4288b9;
+    border: 1px solid #4288b9;
+}
+
+.btn-primary:hover {
+    background-color: #4288b9;
+}
+
+svg {
+    height: 100px;
+    width: 100px;
+    cursor: pointer;
+    fill: #063b45;
+}
+
+.page_header {
+    padding: 15px 0;
+    border-bottom: solid 1px #dcdcdc;
+    background-color: #fff;
+}
+
+.page_footer {
+    border-top: solid 1px #dcdcdc;
+    background-color: #062c45;
+    padding-bottom: 0;
+    padding-top: 15px;
+}
+
+.top_bar_text {
+    color: #3f5157;
+    font-size: .875em;
+}
+
+.top_panel_lang_selector {
+    position: relative;
+    padding: 4px;
+    border: solid 1px #dcdcdc;
+    border-radius: 3px;
+    background: #f8f8f8;
+    cursor: pointer;
+}
+
+.top_panel_lang_selector__list {
+    display: none;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    z-index: 5;
+}
+
+.top_panel_lang_selector__item {
+    margin-top: 7px;
+}
+
+.top_panel_lang_selector__link {
+    border: solid 1px transparent;
+    width: 1.6em;
+    padding-bottom: 50%;
+    display: block;
+    overflow: hidden;
+    line-height: 0;
+    background: transparent no-repeat 50% 50%;
+    background-size: cover;
+    text-decoration: none;
+}
+
+
+.top_panel__social-link.link__telegram:hover {
+    color: #0d3c61;
+}
+
+.page_top_bar .phone-item {
+    font-size: .9em;
+}
+
+.top_panel__social-link {
+    color: #999;
+    margin: 0 4px;
+    font-size: 1em;
+}
+
+.page_header_logo-caption {
+    text-transform: uppercase;
+    font-size: .875em;
+    color: #333;
+    max-width: 5.3em;
+    padding-left: 1em;
+    border-left: solid 1px #d5d5d5;
+    margin-left: 1.1em;
+}
+
+.icon-svg {
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    fill: currentColor;
+    fill-rule: evenodd;
+    vertical-align: middle;
+}
+
+.phone-tel {
+    color: #234819;
+}
+
+.phone-life {
+    color: #dbba15;
+}
+
+.phone-vodafone {
+    color: #f91600;
+}
+
+.phone-kyivstar {
+    color: #00a0ff;
+}
+
+.text-decoration-none {
+    text-decoration: none !important;
+}
+
+.text-gray {
+    color: #7b7b7b;
+}
+
+.text-alt-body {
+    color: #3f5157;
+}
+
+.col-my-flex {
+    flex: 0 0 auto;
+    width: auto;
+    max-width: 100%;
+}
+
+.place-items-center {
+    display: grid;
+    place-items: center;
+}
+
+.header_phone-list {
+    column-count: 2;
+    display: inline-block;
+}
+
+.phone-item {
+    break-inside: avoid;
+    padding: .3em 0;
+    display: flex;
+    align-items: center;
+}
+
+.phone-item a {
+    height: 1.375em;
+    margin-left: .3em;
+}
+
+.dollar {
+    width: 1em;
+    color: #86e086;
+}
+
+.page_top_bar {
+    height: 36px;
+    padding: 4px 0;
+    background-color: #f2f2f2;
+}
+
+.header_panel_left_divider {
+    border-left: solid 1px #d5d5d5;
+    margin-left: 1.1em;
+}
+
+
+.footer_copyright {
+    background-color: rgba(255, 255, 255, .13);
+    font-size: .8rem;
+    color: white;
+    margin-top: 15px;
+}
+
+.list-unstyled {
+    list-style: none;
+}
+
+.col-my-flex-shrink {
+    flex-shrink: 2;
+    flex-grow: 1;
+    flex-basis: 80%;
+    width: 80%;
+}
+
+@media (min-width: 992px) {
+    .navbar {
+        position: inherit;
+    }
+}
+
+.car_select_form {
+    margin-top: 15px;
+    margin-bottom: 15px;
+    position: relative;
+    box-shadow: 0 0 45px rgb(34 159 255 / 30%);
+    background-color: #d9dde3;
+}
+
+.car_select_form {
+    padding: 10px 0;
+}
+
+.car_select_form img {
+    width: 280px;
+    position: absolute;
+    left: -50px;
+    bottom: 10px;
+    filter: url(#drop-shadow);
+    -ms-filter: "progid:DXImageTransform.Microsoft.Dropshadow(OffX=0, OffY=15, Color='#999')";
+    filter: "progid:DXImageTransform.Microsoft.Dropshadow(OffX=0, OffY=15, Color='#999')";
+    -webkit-filter: drop-shadow(0px 15px 15px rgba(0, 0, 0, 0.9));
+}
+
+.hot_propose {
+    color: white;
+    margin-top: 25px;
+    margin-bottom: 15px;
+}
+
+.hot_propose h4 {
+    text-align: center;
+}
+
+.hot_propose img {
+    max-width: 100%;
+}
+
+.car_propose {
+    border: 1px solid #1e1e2d;
+    border-radius: 3%;
+}
+
+.navbar-collapse.show {
+    padding: 5px;
+    background-color: #f8f9fa;
+}
+
+.m-n1 {
+    margin: -0.25rem !important;
+}
+
+.m-n2 {
+    margin: -0.5rem !important;
+}
+
+.detail_car_info {
+    color: white;
+}
+
+.detail_car_info h3 {
+    color: white;
+    text-align: center;
+}
+
+.detail_car_info .icon-svg {
+    width: 2em;
+    height: 2em;
+}
+
+.short_info {
+    color: white;
+}
+
+.option_list {
+    column-count: 2;
+}
+
+.p-text-right {
+    text-align: right;
+}
+
+.p-text-left {
+    text-align: left;
+}
+
+ol.carousel-indicators {
+    position: relative;
+    margin: 0px;
+}
+
+.carousel-indicators li {
+    width: 200px;
+    height: 100%;
+    opacity: 0.8;
+}
+
+.my-text-black {
+    color: black;
+}
+
+.p-galleria-thumbnail-wrapper {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 140px;
+}
+
+.p-galleria-thumbnail-items-container {
+    width: 100%;
+}
+
+div#APP{
+    max-width: none;
+    padding: 0px;
+}
+
+div#APP .p-megamenu{
+    border: none;
+    padding: 0px;
+    margin: 0px;
+}
