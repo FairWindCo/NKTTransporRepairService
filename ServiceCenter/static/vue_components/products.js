@@ -56,7 +56,9 @@ const fwproducts = {
                     <div class="p-grid">
                         <div class="col-3" v-if="view_category">
                             <p-tree :value="category" @nodeExpand="getCategory" :loading="category_loading" label="name" key="id">
-                            
+                                    <template #default="slotProps">
+                                            <b>{{slotProps.node.label}}</b>
+                                    </template>              
                             </p-tree>
                         </div>
                         <div :class="{'col-9': view_category,

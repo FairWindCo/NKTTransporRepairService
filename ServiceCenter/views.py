@@ -20,3 +20,9 @@ class Category(FilterAjaxListView):
         ('parent__id', None, 'level', None),
         ('parent__id', 'isnull', 'main', bool),
     ]
+    serialized_fields = [
+        ('id', None, 'key'),
+        ('name', None, 'label'),
+        ('code', None, 'data'),
+        ('categories_set__count', 'bool_not', 'leaf'),
+    ]
