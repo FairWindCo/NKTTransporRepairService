@@ -28,6 +28,20 @@ class Command(BaseCommand):
             help='Always update products in db',
         )
 
+        parser.add_argument(
+            '--update_category',
+            action='store_true',
+            help='Always update products category in db',
+        )
+
+        parser.add_argument(
+            '--limit',
+            type=int,
+            default=None,
+            help='limit processing records',
+        )
+
+
     def category_create_handler(self, category):
         code = category['code']
 
@@ -50,7 +64,7 @@ class Command(BaseCommand):
                 return None
             return category
 
-    def product_create_handler(self, product, update=False):
+    def product_create_handler(self, product, update=False,  update_category=False):
         code = product['code']
         brand_name = str(product['brand']).strip().upper() if product['brand'] else None
         main_category = product['parent']
@@ -98,16 +112,20 @@ class Command(BaseCommand):
             if main_category:
                 product_.categories.add(main_category)
             product_.save()
-
+        if update_category and main_category:
+            print(main_category, product_.code)
+            product_.categories.add(main_category)
+            product_.save()
         product['id'] = product_.id
         self.product_count += 1
+        #print(main_category, product, update_category)
         return product
 
     def handle(self, *args, **options):
 
         importer = TradeImporter(options['file_name'])
         importer.process_import(lambda cat: self.category_create_handler(cat),
-                                lambda pr: self.product_create_handler(pr, options['update']))
+                                lambda pr: self.product_create_handler(pr, options['update'], options['update_category']))
 
         result = 'PROCESSED UNIQUE CATEGORY {} AND PRODUCTS {} WITH BRANDS {}'.format(
             len(self.category_cache), self.product_count, len(self.brand_cache))

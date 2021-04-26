@@ -1,6 +1,6 @@
 from django.core.management import BaseCommand
 
-from Trade.models import Products, simplify_vendor_code
+from Product.models import Products, simplify_vendor_code
 
 
 class Command(BaseCommand):
