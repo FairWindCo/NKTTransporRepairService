@@ -28,6 +28,8 @@
 
 {% block vue_app_config %}
     <script>
+        axios.defaults.xsrfHeaderName = "X-CSRFTOKEN";
+        axios.defaults.xsrfCookieName = "csrftoken";
         const APP_COMPONENTS = {fwdashboard, fwitems}
         const APP_CONFIG = {
             data() {

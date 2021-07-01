@@ -48,11 +48,12 @@ def get_product_by_category(request):
     else:
         objects = Products.objects.all()
     context = filter_query(request, objects, ['id',
-                                                             'name',
-                                                             'code',
-                                                             'product_code',
-                                                             'default_warranty',
-                                                             'default_price',
-                                                             ])
+                                              'name',
+                                              'code',
+                                              'product_code',
+                                              'default_warranty',
+                                              'default_price',
+                                              'brand__code'
+                                              ], configuration={'use_combined_filter': 'view_filter'})
 
     return JsonResponse(context, safe=False)
