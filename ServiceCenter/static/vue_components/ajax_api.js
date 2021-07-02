@@ -13,9 +13,7 @@ function get_data(vue, url, params = {}, processor = null) {
         })
 }
 function post_data(vue, url, params = {}, processor = null) {
-    axios.post(url, {
-        params: params
-    })
+    axios.post(url, params)
         .then(function (response) {
             if(processor && processor instanceof Function){
                 processor(response.data)

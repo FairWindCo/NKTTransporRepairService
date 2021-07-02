@@ -92,12 +92,12 @@ const fwproducts = {
                 level: current_level
                 //main: main
             }, data => {
-                console.log(data.data_list);
+                console.log(data.list);
                 this.category_loading = false;
                 if (current_category) {
-                    current_category.children = data.data_list
+                    current_category.children = data.list
                 } else {
-                    this.category = data.data_list
+                    this.category = data.list
                 }
             })
         },

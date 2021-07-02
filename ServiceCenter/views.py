@@ -1,7 +1,8 @@
 from django.http import JsonResponse
 from django.shortcuts import render
 # Create your views here.
-from vue_utils.utils import filter_query, get_from_request
+from vue_utils.request_processsor.utility import get_from_request
+from vue_utils.request_processsor.view import filter_query
 from vue_utils.views import FilterAjaxListView
 
 from Product.models import Categories, Products
@@ -54,6 +55,7 @@ def get_product_by_category(request):
                                               'default_warranty',
                                               'default_price',
                                               'brand__code'
-                                              ], configuration={'use_combined_filter': 'view_filter'})
+                                              ],
+                           configuration={'use_combined_filter': 'view_filter', 'use_extended_filter': True})
 
     return JsonResponse(context, safe=False)
