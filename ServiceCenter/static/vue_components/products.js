@@ -10,12 +10,14 @@ const fwproducts = {
             category_selected: null,
             category: null,
             product_filters_model: {
-                'name':{value: null, matchMode: primevue.api.FilterMatchMode.STARTS_WITH},
+                'name':{operator: primevue.api.FilterOperator.AND,
+                    constraints: [{value: null, matchMode: primevue.api.FilterMatchMode.STARTS_WITH}]},
                 'brand': {
                     operator: primevue.api.FilterOperator.AND,
                     constraints: [{value: null, matchMode: primevue.api.FilterMatchMode.STARTS_WITH}],
                     value: null
                 },
+                'code':{value: null, matchMode: primevue.api.FilterMatchMode.STARTS_WITH},
             },
         }
     },
@@ -158,7 +160,7 @@ const fwproducts = {
                             :total-records="total_product"
                             sort-mode="multiple"  
                             :rows-per-page-options="[10,20,50]" responsive-layout="scroll"
-                            filter-display="row" :lazy="true" ref="dt"
+                            filter-display="menu" :lazy="true" ref="dt"
                             @page="onPage($event)" @sort="onSorting($event)" @filter="onFilter($event)"
                             v-model:filters="product_filters_model"
                             :global-filter-fields="['name']"
